@@ -1,0 +1,8 @@
+{
+    "zenMode.hideActivityBar": true,
+    "zenMode.hideLineNumbers": true,
+    "zenMode.hideStatusBar": true,
+    "zenMode.hideTabs": true,
+    "editor.suggest.showIcons": true,
+    "workbench.statusBar.visible": true
+}

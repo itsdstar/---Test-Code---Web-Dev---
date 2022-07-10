@@ -1,0 +1,51 @@
+* {
+    text-align: center;
+    background-color: #040D1D;
+}
+
+h2,
+h1 {
+    color: #AC1C2C;
+}
+
+.table {
+    color: #AC1C2C;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table,
+th,
+td,
+tfoot {
+    border: 1px solid #AC1C2C;
+    border-collapse: collapse;
+}
+
+.link {
+    color: #3D86BA;
+}
+
+.link:hover {
+    transform: scale(1.1);
+    color: #FCFC8C;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 80px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 40px;
+    font-weight: 800;
+    text-indent: 10px;
+}
