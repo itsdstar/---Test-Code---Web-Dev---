@@ -10,22 +10,28 @@ h1 {
 
 .table {
     color: #a91f2f;
+    /* for moving the table in center */
     margin-left: auto;
     margin-right: auto;
+    line-height: 2;
 }
 
 table,
 th,
 td,
 tfoot {
+    /* table border functin */
     border: 1px solid #AC1C2C;
     border-collapse: collapse;
 }
 
 .link {
+    /* used for 3D effect */
+    text-shadow: 0px 10px 50px #3D86BA;
     color: #3D86BA;
 }
 
+/* hover to change text colour and size */
 .link:hover {
     transform: scale(1.1);
     color: #FCFC8C;
@@ -48,4 +54,15 @@ h6 {
     line-height: 40px;
     font-weight: 800;
     text-indent: 10px;
+}
+
+/* used border */
+.titel {
+    border-style: solid;
+    border-radius: 20px;
+}
+
+/* for transforming to upper case */
+.link {
+    text-transform: uppercase;
 }
