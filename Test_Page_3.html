@@ -6,34 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donation</title>
+    <link rel="stylesheet" href="Test_Page_3.css">
 </head>
 
 <body>
-    <a href="./Test_Page _1.html">
-        <h2>First Page</h2>
-    </a>
-    <hr>
-    <form action="">
-        <h1>Payment Detals, Adress And Contact Informaton</h1>
+    <div class="content">
+        <a class="hed" href="./Test_Page _1.html">
+            <h2>First Page</h2>
+        </a>
         <hr>
-        <h2>Persinal Informaton</h2>
-        <p>First Name : <input type="text" name="First Name" required></p>
-        <p>last Name : <input type="text" name="last Name" required></p>
-        <fieldset>
-            <legend>Gender</legend>
-            <p>
-                Male <input type="radio" name="Gender" id="Male" required>
-                Female <input type="radio" name="Gender" id="Female" required>
-                Transgender <input type="radio" name="Gender" id="Transgender" required>
-            </p>
-        </fieldset>
-        <hr>
-        <h2>content Informaton</h2>
-        <p>Email : <input type="email" name="Email" id="Email" required></p>
-        <p>Phone Number <input type="number" name="Phone Number" id="Phone Number" required></p>
-        <hr>
-        <h2>Address Details</h2>
-        <p>Address : <textarea name="Address" id="Address" cols="100" rows="8"></textarea required></p>
+        <form action="">
+            <h1 class="hed">Payment Detals, Adress And Contact Informaton</h1>
+            <hr>
+            <h2>Persinal Informaton</h2>
+            <p>First Name : <input type="text" name="First Name" required></p>
+            <p>last Name : <input type="text" name="last Name" required></p>
+            <fieldset>
+                <legend>Gender</legend>
+                <p>
+                    Male <input type="radio" name="Gender" id="Male" required>
+                    Female <input type="radio" name="Gender" id="Female" required>
+                    Transgender <input type="radio" name="Gender" id="Transgender" required>
+                </p>
+            </fieldset>
+            <hr>
+            <h2>content Informaton</h2>
+            <p>Email : <input type="email" name="Email" id="Email" required></p>
+            <p>Phone Number <input type="number" name="Phone Number" id="Phone Number" required></p>
+            <hr>
+            <h2>Address Details</h2>
+            <p>Address : <textarea name="Address" id="Address" cols="100" rows="8"></textarea required></p>
         <p>State : <select name="State" id="State" required>
             <option value="">-- Select State --</option>
             <option value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
@@ -94,7 +96,7 @@
         </p>
         <p>CVV : <input type="password" name="CVV" id="CVV" required>
         </p>
-        <hr>
         <input type="submit" value="Pay Now">
+    </div>
 </body>
 </html>
