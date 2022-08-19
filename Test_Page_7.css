@@ -1,5 +1,42 @@
+body {
+    background-color: #eedded;
+}
+
 .clip-path {
     clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
-    margin-left: 25%;
-    margin-right: 50%;
+    margin-top: 250px;
+    position: absolute;
+    z-index: 40;
+    top: 120px;
+    left: 530px;
+}
+
+.COB {
+    font-size: 40px;
+    text-align: center;
+    position: static;
+    padding-top: 40px;
+    margin: auto;
+    width: 400px;
+    height: 220px;
+    border: 8px solid #d23fc8;
+    border-radius: 5px;
+    background: #4e474d;
+    position: absolute;
+}
+
+.BOB {
+    font-size: 40px;
+    text-align: center;
+    margin: auto;
+    width: 400px;
+    height: 220px;
+    border: 8px solid #d23fc8;
+    border-radius: 5px;
+    background: #4e474d;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 20;
+    top: 200px;
+    left: 300px;
 }
