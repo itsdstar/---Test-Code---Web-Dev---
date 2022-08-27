@@ -1,0 +1,15 @@
+* {
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        color: red;
+    }
+}
+
+@media (orientation: landscape) {
+    body {
+        color: blue;
+    }
+}
