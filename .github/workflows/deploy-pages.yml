@@ -1,0 +1,327 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Create index page with project links
+        run: |
+          cat > index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Dipanjan's Web Development Journey</title>
+              <style>
+                  * {
+                      margin: 0;
+                      padding: 0;
+                      box-sizing: border-box;
+                  }
+                  
+                  body {
+                      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                      min-height: 100vh;
+                      padding: 20px;
+                  }
+                  
+                  .container {
+                      max-width: 1200px;
+                      margin: 0 auto;
+                      background: rgba(255, 255, 255, 0.95);
+                      border-radius: 20px;
+                      padding: 40px;
+                      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+                  }
+                  
+                  h1 {
+                      text-align: center;
+                      color: #333;
+                      margin-bottom: 10px;
+                      font-size: 2.5em;
+                  }
+                  
+                  .subtitle {
+                      text-align: center;
+                      color: #666;
+                      margin-bottom: 40px;
+                      font-size: 1.2em;
+                  }
+                  
+                  .projects-grid {
+                      display: grid;
+                      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                      gap: 25px;
+                      margin-bottom: 40px;
+                  }
+                  
+                  .project-card {
+                      background: #fff;
+                      border-radius: 15px;
+                      padding: 25px;
+                      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+                      transition: transform 0.3s ease, box-shadow 0.3s ease;
+                      border-left: 5px solid #667eea;
+                  }
+                  
+                  .project-card:hover {
+                      transform: translateY(-5px);
+                      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+                  }
+                  
+                  .project-card h3 {
+                      color: #333;
+                      margin-bottom: 15px;
+                      font-size: 1.3em;
+                  }
+                  
+                  .project-card p {
+                      color: #666;
+                      margin-bottom: 20px;
+                      line-height: 1.6;
+                  }
+                  
+                  .project-link {
+                      display: inline-block;
+                      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                      color: white;
+                      padding: 12px 24px;
+                      text-decoration: none;
+                      border-radius: 25px;
+                      transition: all 0.3s ease;
+                      font-weight: 500;
+                  }
+                  
+                  .project-link:hover {
+                      background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+                      transform: scale(1.05);
+                  }
+                  
+                  .challenge-section {
+                      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+                      border-radius: 15px;
+                      padding: 30px;
+                      margin-top: 30px;
+                  }
+                  
+                  .challenge-section h2 {
+                      color: #fff;
+                      margin-bottom: 20px;
+                      text-align: center;
+                  }
+                  
+                  .footer {
+                      text-align: center;
+                      margin-top: 40px;
+                      color: #666;
+                  }
+                  
+                  .tech-badges {
+                      display: flex;
+                      gap: 10px;
+                      margin-bottom: 15px;
+                      flex-wrap: wrap;
+                  }
+                  
+                  .badge {
+                      background: #667eea;
+                      color: white;
+                      padding: 5px 12px;
+                      border-radius: 15px;
+                      font-size: 0.8em;
+                      font-weight: 500;
+                  }
+                  
+                  @media (max-width: 768px) {
+                      .container {
+                          padding: 20px;
+                      }
+                      
+                      h1 {
+                          font-size: 2em;
+                      }
+                      
+                      .projects-grid {
+                          grid-template-columns: 1fr;
+                      }
+                  }
+              </style>
+          </head>
+          <body>
+              <div class="container">
+                  <h1>🌐 Web Development Learning Journey</h1>
+                  <p class="subtitle">Explore my progression through HTML, CSS, and JavaScript projects</p>
+                  
+                  <div class="projects-grid">
+                      <div class="project-card">
+                          <div class="tech-badges">
+                              <span class="badge">HTML</span>
+                              <span class="badge">CSS</span>
+                          </div>
+                          <h3>Test Page 1 - Fundamentals</h3>
+                          <p>Basic HTML structure and CSS styling fundamentals. My first step into web development.</p>
+                          <a href="./Test_Page _1.html" class="project-link">View Project →</a>
+                      </div>
+                      
+                      <div class="project-card">
+                          <div class="tech-badges">
+                              <span class="badge">HTML</span>
+                              <span class="badge">CSS</span>
+                          </div>
+                          <h3>Test Page 2 - Advanced Layouts</h3>
+                          <p>Exploring advanced CSS layouts and positioning techniques for better design.</p>
+                          <a href="./Test_Page_2.html" class="project-link">View Project →</a>
+                      </div>
+                      
+                      <div class="project-card">
+                          <div class="tech-badges">
+                              <span class="badge">HTML</span>
+                              <span class="badge">CSS</span>
+                              <span class="badge">Flexbox</span>
+                          </div>
+                          <h3>Test Page 3 - Flexbox & Responsive</h3>
+                          <p>Mastering Flexbox layouts and responsive design principles.</p>
+                          <a href="./Test_Page_3.html" class="project-link">View Project →</a>
+                      </div>
+                      
+                      <div class="project-card">
+                          <div class="tech-badges">
+                              <span class="badge">HTML</span>
+                              <span class="badge">CSS Grid</span>
+                          </div>
+                          <h3>Test Page 4 - CSS Grid</h3>
+                          <p>Complex grid layouts and advanced structural design patterns.</p>
+                          <a href="./Test_Page_4.html" class="project-link">View Project →</a>
+                      </div>
+                      
+                      <div class="project-card">
+                          <div class="tech-badges">
+                              <span class="badge">CSS</span>
+                              <span class="badge">Animations</span>
+                          </div>
+                          <h3>Test Page 5 - Animations</h3>
+                          <p>CSS animations, transitions, and interactive visual effects.</p>
+                          <a href="./Test_Page_5.html" class="project-link">View Project →</a>
+                      </div>
+                      
+                      <div class="project-card">
+                          <div class="tech-badges">
+                              <span class="badge">HTML</span>
+                              <span class="badge">CSS</span>
+                              <span class="badge">Forms</span>
+                          </div>
+                          <h3>Test Page 6 - Forms & Input</h3>
+                          <p>Form creation, styling, and user input handling techniques.</p>
+                          <a href="./Test_Page_6.html" class="project-link">View Project →</a>
+                      </div>
+                      
+                      <div class="project-card">
+                          <div class="tech-badges">
+                              <span class="badge">CSS</span>
+                              <span class="badge">Responsive</span>
+                          </div>
+                          <h3>Test Page 7 - Mobile First</h3>
+                          <p>Media queries and mobile-first responsive design approach.</p>
+                          <a href="./Test_Page_7.html" class="project-link">View Project →</a>
+                      </div>
+                      
+                      <div class="project-card">
+                          <div class="tech-badges">
+                              <span class="badge">HTML</span>
+                              <span class="badge">CSS</span>
+                              <span class="badge">JavaScript</span>
+                          </div>
+                          <h3>Test Page 8 - Interactive Elements</h3>
+                          <p>Introduction to JavaScript and DOM manipulation for interactivity.</p>
+                          <a href="./Test_Page_8.html" class="project-link">View Project →</a>
+                      </div>
+                      
+                      <div class="project-card">
+                          <div class="tech-badges">
+                              <span class="badge">JavaScript</span>
+                              <span class="badge">ES6+</span>
+                          </div>
+                          <h3>Test Page 9 - Advanced JS</h3>
+                          <p>Advanced JavaScript features and modern ES6+ syntax implementation.</p>
+                          <a href="./Test_Page_9.html" class="project-link">View Project →</a>
+                      </div>
+                  </div>
+                  
+                  <div class="challenge-section">
+                      <h2>🏆 Challenge Projects</h2>
+                      <div class="project-card">
+                          <div class="tech-badges">
+                              <span class="badge">HTML</span>
+                              <span class="badge">CSS</span>
+                              <span class="badge">Layout Challenge</span>
+                          </div>
+                          <h3>Challenge Page 1 - Complete Website</h3>
+                          <p>A comprehensive website layout challenge incorporating all learned concepts.</p>
+                          <a href="./Challenge_Page_1.html" class="project-link">View Challenge →</a>
+                      </div>
+                  </div>
+                  
+                  <div class="footer">
+                      <p>🌟 Built with passion for learning web development</p>
+                      <p>Connect with me: <a href="https://github.com/itsdstar" style="color: #667eea;">@itsdstar</a></p>
+                      <p>Last updated: September 2025</p>
+                  </div>
+              </div>
+          </body>
+          </html>
+          EOF
+        
+      - name: Validate HTML files
+        run: |
+          echo "Checking for HTML files..."
+          find . -name "*.html" -type f | head -10
+          
+          echo "Validating HTML syntax..."
+          for file in *.html; do
+            if [[ -f "$file" ]]; then
+              echo "Found: $file"
+            fi
+          done
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
